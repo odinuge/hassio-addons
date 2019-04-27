@@ -1,5 +1,5 @@
 {
-  "name": "Hass.io addons - Odin Ugedal",
-  "url": "https://github.com/odinuge/hassio-addons",
-  "maintainer": "Odin Ugedal <odin@ugedal.com>"
+  "name": "Hass.io AutoSSH Modified",
+  "url": "https://github.com/analogist/hassio-autossh-mod",
+  "maintainer": "James Wu <contact@analogist.net>"
 }
