@@ -19,15 +19,15 @@ MONITOR_PORT=$(jq --raw-output ".monitor_port" $CONFIG_PATH)
 if [ ! -d "$KEY_PATH" ]; then
     echo "[INFO] Setup private key"
     mkdir -p "$KEY_PATH"
-    ssh-keygen -b 4096 -t rsa -N "" -f "${KEY_PATH}/autossh_rsa_key"
+    ssh-keygen -t ed25519 -N "" -f "${KEY_PATH}/autossh_ed25519"
 else
     echo "[INFO] Restore private_keys"
 fi
 
 echo "[INFO] public key is:"
-cat "${KEY_PATH}/autossh_rsa_key.pub"
+cat "${KEY_PATH}/autossh_ed25519.pub"
 
-command_args="-M ${MONITOR_PORT} -N -q -o ServerAliveInterval=20 -o ServerAliveCountMax=3 ${USERNAME}@${HOSTNAME} -p ${SSH_PORT} -i ${KEY_PATH}/autossh_rsa_key"
+command_args="-M ${MONITOR_PORT} -N -q -o ServerAliveInterval=20 -o ServerAliveCountMax=3 ${USERNAME}@${HOSTNAME} -p ${SSH_PORT} -i ${KEY_PATH}/autossh_ed25519"
 
 if [ ! -z "$REMOTE_FORWARDING" ]; then
   while read -r line; do
