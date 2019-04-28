@@ -25,6 +25,5 @@
     "local_forwarding": ["str"],
     "other_ssh_options": "str",
     "monitor_port": "int"
-  },
-  "image": "analogist/hassio-autossh-mod-{arch}"
+  }
 }
